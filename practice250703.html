@@ -18,7 +18,8 @@
         female
         rqid
 
-        //name은 input에 전부 처리
+        //name
+        //input
         
         1.nameN
         2.emailN
@@ -42,58 +43,45 @@
         
         -->
 
-        <!--
-        이벤트 처리 
-        1이름이 없으면 "이 입력을 작성하세요. 알람"
-        2이메일 주소에 @를 포함해주세요 -> 기본 포함      xx
-        3radio 처리 
-        3참여일자 를 누르지 않고 누르면 참여일자를 선택해 주세요
-        4요청사항에 500/500자 실시간으로 업데이트
-        5 개인정보 수집에 동의합니다. 체크시에 배경이 연두색
-        6 
-
-        
-        -->
-
         <h1>사용자 입력 양식 이벤트 연습하기</h1>
 
         <label for="nameid" >이름</label><br>
-            <input type="text" id="nameid" name="nameN" value=""><br>
+            <input type="text" id="nameid" name="nameN"><br>
         <label for="emailid">이메일</label><br>
-            <input type="email" id="emailid" name="emailN" value=""><br>
+            <input type="email" id="emailid" name="emailN"><br>
         <label >성별</label><br>
             <label for="male">남</label>
-                <input type="radio" value="M" name="genderN" value="">
+                <input type="radio" value="M" name="genderN" >
             <label for="female">여</label>
-                <input type="radio" value="F" name="genderN" value=""><br>
-        <label>참여 일자 선택</label><br><!-- 참여일자 바꾸기 -->
-            <select name="dateN" value="">
-            <option value="">한국</option>
-            <option value="">중국</option>
-            <option value="">일본</option>
-            <option value="" selected>기타</option>
+                <input type="radio" value="F" name="genderN" ><br>
+        <label>참여 일자 선택</label><br>
+            <select name="dateN">
+            <option value="ko">한국</option>
+            <option value="ch">중국</option>
+            <option value="jp">일본</option>
+            <option value="etc" selected>기타</option>
             </select><br>
         <label for="rqid" >요청 사항</label><br>
-            <input type="text" id="rqid" name="rqN" value=""><br>
+            <input type="text" id="rqid" name="rqN"><br>
         <label>개인정보 수집에 동의합니다.</label><br>
-            <button type="submit" onclick="submitForm()" value="">전송</button>
+            <button type="submit" onclick="submitForm()">전송</button>
 
     </form>
 
     <script>
         /*
             const formJS 
+            value:formid
         */
 
     function submitForm() {
     const formJS = document.getElementById("formid");
-    //event.preventDefault(); //기본 submit 동작을 막아 콘솔에 표현하게해줌 
-    console.log(formJS);}
+    event.preventDefault(); //기본 submit 동작을 막아 콘솔에 표현하게해줌 
+    console.log(formJS);
 
 
-    formJS.submit(); // name과 value를 포함하여 서버로 제출 새로고침하기에 현재 주석처리 
-
-
+    //formJS.submit(); // name과 value를 포함하여 서버로 제출 새로고침하기에 현재 주석처리 
+  }
 </script>
 
 </body>
