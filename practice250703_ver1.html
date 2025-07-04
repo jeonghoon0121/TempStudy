@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습문제250703</title>
+</head>
+<body>
+
+        <!--
+        //id,for -> test ok!
+
+        formid
+        nameid
+        emailid
+        male
+        female
+        rqid
+
+        //name은 input에 전부 처리
+        
+        1.nameN
+        2.emailN
+        3.genderN
+        4.dateN
+        5.rqN
+        6.formN
+
+        //value
+        M
+        F
+        DATE x
+
+        //submit을 보내면! name과 value과 이동!
+        name은 데이터 이름
+        value는 데이터의 값 
+
+        action = data를 보낼 주소
+        method = post or get 
+
+        
+        -->
+
+        <!--
+        이벤트 처리 
+        1이름이 없으면 "이 입력을 작성하세요. 알람"
+        2이메일 주소에 @를 포함해주세요 -> 기본 포함      xx
+        3radio 처리 
+        3참여일자 를 누르지 않고 누르면 참여일자를 선택해 주세요
+        4요청사항에 500/500자 실시간으로 업데이트
+        5 개인정보 수집에 동의합니다. 체크시에 배경이 연두색
+
+
+        
+        -->
+
+        <!--
+        250703 이름 전송 id 전송 테스트
+        250704 html checkbox 추가, 이메일까지 완료 
+        -->
+
+        <h1>사용자 입력 양식 이벤트 연습하기</h1>
+    <form action="" method="" id="formid" name="formN" >
+        <label for="nameid" >이름</label><br>
+            <input type="text" id="nameid" name="nameN" value=""><br>
+        <label for="emailid">이메일</label><br>
+            <input type="email" id="emailid" name="emailN" value=""><br>
+        <label >성별</label><br>
+            <label for="male">남</label>
+                <input type="radio" value="M" name="genderN" value="">
+            <label for="female">여</label>
+                <input type="radio" value="F" name="genderN" value=""><br>
+        <label>참여 일자 선택</label><br><!-- 참여일자 바꾸기 -->
+            <select name="dateN" value="">
+            <option value="">1</option>
+            <option value="">2</option>
+            <option value="">3</option>
+            <option value="" selected>기타</option>
+            </select><br>
+        <label for="rqid" >요청 사항</label><br>
+            <input type="text" id="rqid" name="rqN" value=""><br>
+        <input type="checkbox" checked value="">
+        <label>개인정보 수집에 동의합니다.</label><br>
+            <button type="submit" onclick="submitForm()" value="">전송</button>
+    </form>
+
+    <script>
+        /*
+            const formJS formJS의 id
+
+            const $formn form 안의 name 요소 값
+
+            let keyword1 
+
+        */
+    const $formN = document.forms.formN;
+    console.log($formN);
+    $formN.onsubmit = function() 
+    {
+        let keyword1 = this.querySelector('input[name=nameN]').value;
+        //이름
+        let keyword2 = this.querySelector('input[name=emailN]').value;
+        //이메일
+        
+
+        
+
+
+
+
+        /*이름 입력시*/
+        console.log(keyword1);  //이름 출력
+        if(!keyword1) //이름이 입력되지 않은 경우
+        {
+            alert('이 입력란을 작성하세요.');
+            return false;
+        }
+        else 
+        {
+        console.log("error1")
+        }
+        
+
+        /*이메일 입력시*/
+
+        console.log(keyword2);  //이메일 출력
+        if(!keyword2) //이메일에 아무것도 없는경우 , false 입력이면 true로 실행
+        {
+            alert("이메일 주소에 @를 포함해 주세요.1");
+            return false;
+        }
+        else if(keyword2.endsWith('Javascript'))   //이메일에 @가 없는이유, false 입력 true
+        {
+            alert("이메일 주소에 @를 포함해 주세요.2");
+            return false;
+        }
+        /*
+        이메일에 @포함된경우 true -> 사실 검사할 필요 X
+        뒷 글자가 @인 경우 true 
+        ->마지막 문자
+        ==@true 
+        !=@false
+        
+        */
+
+        else if(false)//요청사항 false
+        {
+
+        }
+
+        else if(false)//개인정보 수집 
+        {
+
+        }
+
+
+
+
+
+
+        //마지막 @가 뒤에있는부분은 확인불가능 
+
+        // else if(keyword2.substring(keyword2.length-1, keyword2.length)=='@')   
+        // {
+        //     alert("@뒷 부분을 입력해 주세요. koala@(이)가 완전하지 않습니다.");
+        // }
+        else 
+        {
+        console.log("error001")
+        }
+
+
+
+
+
+
+
+        }
+
+
+
+
+    // function submitForm() 
+    // {
+    // const formJS = document.getElementById("formid");   //formid에서 전송한 그것 
+    // event.preventDefault(); //기본 submit 동작을 막아 콘솔에 표현하게해줌 
+    // console.log(formJS);
+    // }
+    //formJS.submit(); // name과 value를 포함하여 서버로 제출 새로고침하기에 현재 주석처리 
+    
+
+    </script>
+
+</body>
+</html>
