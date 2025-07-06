@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practice250704</title>
+</head>
+<body>
+    <h1>1번문제</h1><hr>
+        <b>input 태그에 숫자를 입력하고 버튼을 클릭하면, +10이 된 값을 alert으로 출력해 주세요.</b>
+        <p>(input 값 : 5->alert으로 출력된 값 : 15)</p>
+        <input name="num1input"> <button>클릭</button>
+
+    <h1>2번문제</h1><hr>
+        <b>라디오 버튼을 클릭하면 value값을 이용해 해당 사이트로 이동해 주세요.</b>
+        <p>(location.href 이용)</p>
+        <input type="radio">네이버<br>
+        <input type="radio">구글<br>
+        <input type="radio">w3schools
+    <h1>3번문제</h1><hr>
+        <b>라디오 버튼을 클릭하면 value값을 이용해 해당 사이트로 이동해 주세요.</b>
+        <p>(location.href 이용)</p>
+        <input type="radio">JAVA<br>
+        <input type="radio">DataBase<br>
+        <input type="radio">Web
+
+
+    <script>
+        /*1번문제*/
+        document.querySelector("button").addEventListener("click", // 버튼은 1개이므로 기본클릭 버튼 적용
+        function () // 클릭시 작동할 함수 (기능, +10, alram)
+        {
+        const input = document.querySelector("input").value; //input 코드지만 나중을 위해서 name또는 id로 변경필요
+        const result = Number(input) + 10;  //에러로 인한 숫자변환 , +10
+        alert(result); //알람출력
+        });
+
+        /*2번문제*/
+        /*3번문제*/
+    </script>
+</body>
+</html>
