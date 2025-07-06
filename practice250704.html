@@ -14,29 +14,60 @@
     <h1>2번문제</h1><hr>
         <b>라디오 버튼을 클릭하면 value값을 이용해 해당 사이트로 이동해 주세요.</b>
         <p>(location.href 이용)</p>
-        <input type="radio">네이버<br>
-        <input type="radio">구글<br>
-        <input type="radio">w3schools
+        <input type="radio" name="site" value="https://www.naver.com"> 네이버
+        <input type="radio" name="site" value="https://www.google.com"> 구글
+        <input type="radio" name="site" value="https://www.w3schools.com"> w3schools
+
     <h1>3번문제</h1><hr>
-        <b>라디오 버튼을 클릭하면 value값을 이용해 해당 사이트로 이동해 주세요.</b>
-        <p>(location.href 이용)</p>
+        <b>버튼을 크릭하면 첫번째 체크박스의 항목을 체크해주세요.</b>
+        
         <input type="radio">JAVA<br>
         <input type="radio">DataBase<br>
         <input type="radio">Web
 
 
     <script>
+        /*
+        const input : num1의 input값
+        const result : num1의 input값 +10
+        
+        const selected : num2의 선택된 site name의 속성
+        
+        */
+
         /*1번문제*/
         document.querySelector("button").addEventListener("click", // 버튼은 1개이므로 기본클릭 버튼 적용
         function () // 클릭시 작동할 함수 (기능, +10, alram)
         {
-        const input = document.querySelector("input").value; //input 코드지만 나중을 위해서 name또는 id로 변경필요
+        const input = document.querySelector("input[name=num1input]").value;
         const result = Number(input) + 10;  //에러로 인한 숫자변환 , +10
         alert(result); //알람출력
         });
 
         /*2번문제*/
+
+        document.querySelector("button").addEventListener("click", function () 
+        {
+        const selected = document.querySelector("input[name='site']:checked");
+        if (selected) 
+        {
+        location.href = selected.value; //선택되면 실행 
+        }
+        }
+        );
+
         /*3번문제*/
+
+        document.querySelector("button").addEventListener("click", 
+        function () 
+        {
+        const firstCheckbox = document.querySelector("input[type='checkbox']");
+        if (firstCheckbox) 
+        {
+            firstCheckbox.checked = true;
+        }
+        });
+
     </script>
 </body>
 </html>
