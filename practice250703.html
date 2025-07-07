@@ -91,7 +91,8 @@
         <input type="checkbox" id="agid" name="agN" value="">
         <label for="agid">개인정보 수집에 동의합니다.</label><br>
 
-            <button type="submit" onclick="submitForm()" value="">신청하기</button>
+            <button type="submit">신청하기</button>
+
     
         </form>
         
@@ -109,82 +110,27 @@
     
     const $formN = document.forms.formN;    //fromN에서 어트리뷰트값
     //console.log(`${formN}`);      ->test불가능
-        event.preventDefault();
+    //event.preventDefault();
     $formN.onsubmit = function() //유효성검사
     {
         
         let keyword1 = this.querySelector('input[name=nameN]').value;//이름
         let keyword2 = this.querySelector('input[name=emailN]').value;//이메일
-        let keyword3 = this.querySelector('input[name=genderN]').value;//성별
-        let keyword40 = this.querySelector('input[name=dateN]').value;//참여일자선택 옵션
-       
-        let keyword41 = this.querySelector('select[name=dateN]').value;
+        let keyword3 = this.querySelector('input[name=genderN]:checked')?.value || "";//성별
+        let keyword4 = this.querySelector('select[name=dateN]').value;
+
         let keyword5 = this.querySelector('input[name=rqN]').value;//요청사항
         let keyword6 = this.querySelector('input[name=agN]').value;//개인정보동의
         
         console.log(keyword1);  //이름 출력
         console.log(keyword2);  //이메일 출력
         console.log(keyword3);  //성별
-        console.log(keyword40); //참여일자 선택옵션
-        console.log(keyword41);
+        console.log(keyword4); //참여일자 선택옵션
         console.log(keyword5);  //요청사항
         console.log(keyword6);  //개인정보동의 
-
-
-
-        /*
-
+        alert(`${keyword1}+${keyword2}+${keyword3}+${keyword40}+${keyword41}+${keyword5}+${keyword6}`);
         
 
-        이름 -> 이름칸에서 알람
-        이메일1 -> 이메일칸에서 알람
-        이메일2 -> 이메일칸에서 알람
-        개인정보수집 ->개인정보 네모에서 알람
-        참여일자 -> 그냥 alarm
-        
-        */
-
-        if(!keyword1) //이름이 입력되지 않은 경우
-        {
-            alert('이 입력란을 작성하세요.');
-            return false;
-        }
-        else
-        {
-        }
-
-        if(!keyword2) //이메일에 아무것도 없는경우 , false 입력이면 true로 실행  input !f return f 구조
-        {
-            alert("이메일 주소에 @를 포함해 주세요.");
-            return false;
-        }
-        else
-        {        
-        }
-
-        if(keyword2.endsWith('@'))  //이메일 맨끝이 @인 경우 마지막 문자 ==@ -> true 실행
-        {
-            alert("@뒷 부분을 입력해 주세요. koala@(이)가 완전하지 않습니다.");
-            return false;
-        }
-        else
-        {
-        }
-
-        
-        
-
-        //event.preventDefault();//기본 submit 동작을 막아 콘솔에 표현하게해줌
-    } //form끝
-
-
-    // function submitForm() 
-    // {
-    // const formJS = document.getElementById("formid");   //formid에서 전송한 그것 
-    // event.preventDefault(); //기본 submit 동작을 막아 콘솔에 표현하게해줌 
-    // console.log(formJS);
-    // }
-    //formJS.submit(); // name과 value를 포함하여 서버로 제출 새로고침하기에 현재 주석처리 
     
 
     </script>
