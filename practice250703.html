@@ -1,139 +1,108 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>실습문제250703</title>
+  <meta charset="UTF-8">
+  <title>실습문제250703</title>
+  <style>
+    #agid:checked + label {
+      background-color: lightgreen;
+    }
+  </style>
 </head>
 <body>
 
-        <!--
-        for,id ----- checked 250704
+<h1>사용자 입력 양식 이벤트 연습하기</h1>
 
+<form id="formid" name="formN">
+  <label for="nameid">이름</label><br>
+  <input type="text" id="nameid" name="nameN"><br>
 
-        formid
-        nameid
-        emailed
-        dateid
-        rqid
-        agid
+  <label for="emailid">이메일</label><br>
+  <input type="text" id="emailid" name="emailN"><br>
 
-        name ----- checked 250704
-        
-        formN
-        nameN
-        emailN
-        genderN
-        genderN
-        dateN
-        rqN
-        agN
-        
-        //value----- checked 250704
-        M
-        F
+  <label>성별</label><br>
+  <label><input type="radio" name="genderN" value="M">남</label>
+  <label><input type="radio" name="genderN" value="F">여</label><br>
 
-        
+  <label for="dateid">참여 일자 선택</label><br>
+  <select id="dateid" name="dateN">
+    <option value="">--날짜 선택--</option>
+    <option value="2025-07-05">2025년 7월 5일</option>
+    <option value="2025-07-06">2025년 7월 6일</option>
+    <option value="2025-07-07">2025년 7월 7일</option>
+  </select><br>
 
-        
-        -->
+  <label for="rqid">요청 사항 (<span id="counter">0</span>/500자)</label><br>
+  <input type="text" id="rqid" name="rqN" maxlength="500"><br>
 
-        <!--
-        이벤트 처리 
-        1이름이 없으면 "이 입력을 작성하세요. 알람"
-        2이메일 주소에 @를 포함해주세요 -> 기본 포함      xx -> 이메일이 아닌 기본 이름으로 변경필요
-        3radio 처리 
-        3참여일자 를 누르지 않고 누르면 참여일자를 선택해 주세요
-        4요청사항에 500/500자 실시간으로 업데이트
-        5 개인정보 수집에 동의합니다. 체크시에 배경이 연두색
-        6이름명명 전부 정리
-        7
+  <input type="checkbox" id="agid" name="agN">
+  <label for="agid">개인정보 수집에 동의합니다.</label><br><br>
 
+  <button type="submit">신청하기</button>
+</form>
 
-        
-        -->
+<script>
+const $formN = document.forms.formN;
 
-        <!--
-        250703 이름 전송 id 전송 테스트
-        250704 html checkbox 추가, 이메일까지 완료 
-        250704+ 이메일이 아닌 기본 이름으로 변경 
-        250704+ 우선순위변경 ->html 기본뼈대 완성, 1.html 수정ㄴ 2. 유효성검사 구조 변경,이름정리, 변수선언
-        -->
-        
+$formN.onsubmit = function(event) {
+  event.preventDefault();
 
+  const name = this.nameN.value.trim();
+  const email = this.emailN.value.trim();
+  const gender = this.querySelector('input[name="genderN"]:checked')?.value;
+  const date = this.dateN.value;
+  const request = this.rqN.value.trim();
+  const agreed = this.agN.checked;
 
-        <h1>사용자 입력 양식 이벤트 연습하기</h1>
-    <form action="" method="" id="formid" name="formN" >
+  // 이름 확인
+  if (!name) {
+    alert("이름을 입력하세요.");
+    this.nameN.focus();
+    return false;
+  }
 
-        <label for="nameid" >이름</label><br>
-            <input type="text"  id="nameid" name="nameN" value=""><br>
+  // 이메일 유효성 검사
+  if (!email.includes("@")) {
+    alert("이메일 주소에 @를 포함해 주세요.");
+    this.emailN.focus();
+    return false;
+  }
+  if (email.endsWith("@")) {
+    alert("@ 뒤에 도메인을 입력해 주세요. 예: example@domain.com");
+    this.emailN.focus();
+    return false;
+  }
 
-        <label for="emailid">이메일</label><br>
-            <input type="text" id="emailid" name="emailN" value=""><br>
+  // 성별 확인
+  if (!gender) {
+    alert("성별을 선택해 주세요.");
+    return false;
+  }
 
-        <label >성별</label><br>
-            <label for="male">남</label>
-            <input type="radio" name="genderN" value="M">
-            <label for="female">여</label>
-            <input type="radio" name="genderN" value="F"><br>
+  // 날짜 선택 확인
+  if (!date) {
+    alert("참여 일자를 선택해 주세요.");
+    return false;
+  }
 
-        <label for="dateid">참여 일자 선택</label><br>
-            <select id="dateid" name="dateN" value="">
-            <option value="">2025년 7월 5일</option>
-            <option value="">2025년 7월 6일</option>
-            <option value="">2025년 7월 7일</option>
-            <option value="" selected>--날짜 선택--</option>
-            </select><br>
+  // 개인정보 동의 여부
+  if (!agreed) {
+    alert("개인정보 수집에 동의해야 신청할 수 있습니다.");
+    return false;
+  }
 
-        <label for="rqid" >요청 사항</label><br>
-            <input type="text" id="rqid" name="rqN" value=""><br>
+  // 출력 확인용
+  alert(`이름: ${name}\n이메일: ${email}\n성별: ${gender}\n일자: ${date}\n요청사항: ${request}\n동의여부: ${agreed ? "동의" : "미동의"}`);
+};
 
-        <input type="checkbox" id="agid" name="agN" value="">
-        <label for="agid">개인정보 수집에 동의합니다.</label><br>
+// 요청사항 글자 수 표시
+const rqInput = document.getElementById("rqid");
+const counter = document.getElementById("counter");
 
-            <button type="submit">신청하기</button>
-
-    
-        </form>
-        
-    <script>
-    /************************************************************/
-        /*
-            const formJS formJS의 id
-
-            const $formn form 안의 name 요소 값
-
-            let keyword1 
-
-        */
-
-    
-    const $formN = document.forms.formN;    //fromN에서 어트리뷰트값
-    //console.log(`${formN}`);      ->test불가능
-    //event.preventDefault();
-    $formN.onsubmit = function() //유효성검사
-    {
-        
-        let keyword1 = this.querySelector('input[name=nameN]').value;//이름
-        let keyword2 = this.querySelector('input[name=emailN]').value;//이메일
-        let keyword3 = this.querySelector('input[name=genderN]:checked')?.value || "";//성별
-        let keyword4 = this.querySelector('select[name=dateN]').value;
-
-        let keyword5 = this.querySelector('input[name=rqN]').value;//요청사항
-        let keyword6 = this.querySelector('input[name=agN]').value;//개인정보동의
-        
-        console.log(keyword1);  //이름 출력
-        console.log(keyword2);  //이메일 출력
-        console.log(keyword3);  //성별
-        console.log(keyword4); //참여일자 선택옵션
-        console.log(keyword5);  //요청사항
-        console.log(keyword6);  //개인정보동의 
-        alert(`${keyword1}+${keyword2}+${keyword3}+${keyword40}+${keyword41}+${keyword5}+${keyword6}`);
-        
-
-    
-
-    </script>
+rqInput.addEventListener("input", function() {
+  counter.textContent = rqInput.value.length;
+});
+</script>
 
 </body>
 </html>
