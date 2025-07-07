@@ -5,8 +5,8 @@
 2책 코드 추가 20250627
 3코드 테스트 성공  20250628
 4 수정필요, 이해필요 
-5
-6
+5코드 테스트 20250707
+6코드 정리 20250707
 
 
 
@@ -25,57 +25,35 @@ JeongHoon 20250623
 </head>
 <body>
     <h1>폼 관련 태그</h1>
-        <p>form태그는 html 입력양식을 제공하는 태그
+        <p>
+            form태그는 html 입력양식을 제공하는 태그
             input태그들을 통해 사용자가 입력한 정보를 서버로 넘김
             *action 속성 : 폼의 입력값을 전송받을 서버의 클래스명 입력
             *method 속성 : get / post 로 전송
-                get은 url에 데이터 보임
-                post url 감춤 
+                get은 url에 주소창에서 데이터 보임
+                post action의 경로로 이동
+                submit 버튼 누를 때 
+                action 지정 경로로 method지정방식에 따라
+                input태그에 입력한 값들을 전달 
         </p>
-        <form>
-            <label> 검색할 내용 :</label>
-            <input type="text" name="search">
-            <button type="submit">검색</button>
-            
-
-            
-        </form> 
-
         <form action="search" method="post">
             <label> 검색할 내용 :</label>
             <input type="text" name="search">
             <button type="submit">검색</button>
-            
-
-        
-        </form>
-
-
-        <!-- 주소창에 get은 보인다. -->
-        <p>submit 버튼 누를 때 
-            action 지정 경로로 method지정방식에 따라
-            input태그에 입력한 값들을 전달 
-
-
-        </p>
-        <!-- post 는 action 의 경로로 이동 -->
-
+        </form> 
         <hr>
         <form>
-            <fieldset><legend>
-                필드셋의 제목을 작성하는 부분<br>
-            </legend>
-            <label>입력1:</label><input type="text" value="사과"><br>
-            <label>입력2:</label><input type="text"><br>
-            <label>입력3:</label><input type="text"><br> 
+            <fieldset>
+                <legend>필드셋의 제목을 작성하는 부분</legend>
+                <label>입력1:</label><input type="text" value="사과"><br>
+                <label>입력2:</label><input type="text"><br>
+                <label>입력3:</label><input type="text"><br> 
             </fieldset>
-
-            <fieldset><legend>
-                필드셋의 제목을 작성하는 부분<br>
-            </legend>
-            <label>입력1:</label><input type="text" value="사과"><br>
-            <label>입력2:</label><input type="text"><br>
-            <label>입력3:</label><input type="text"><br> 
+            <fieldset>
+                <legend>필드셋의 제목을 작성하는 부분<br></legend>
+                <label>입력1:</label><input type="text" value="포도"><br>
+                <label>입력2:</label><input type="text"><br>
+                <label>입력3:</label><input type="text"><br> 
             </fieldset>
         </form>
         <hr>
