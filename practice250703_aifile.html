@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>실습문제250703</title>
+  <style>
+    #agid:checked + label {
+      background-color: lightgreen;
+    }
+  </style>
+</head>
+<body>
+
+<h1>사용자 입력 양식 이벤트 연습하기</h1>
+
+<form id="formid" name="formN">
+  <label for="nameid">이름</label><br>
+  <input type="text" id="nameid" name="nameN"><br>
+
+  <label for="emailid">이메일</label><br>
+  <input type="text" id="emailid" name="emailN"><br>
+
+  <label>성별</label><br>
+  <label><input type="radio" name="genderN" value="M">남</label>
+  <label><input type="radio" name="genderN" value="F">여</label><br>
+
+  <label for="dateid">참여 일자 선택</label><br>
+  <select id="dateid" name="dateN">
+    <option value="">--날짜 선택--</option>
+    <option value="2025-07-05">2025년 7월 5일</option>
+    <option value="2025-07-06">2025년 7월 6일</option>
+    <option value="2025-07-07">2025년 7월 7일</option>
+  </select><br>
+
+  <label for="rqid">요청 사항 (<span id="counter">0</span>/500자)</label><br>
+  <input type="text" id="rqid" name="rqN" maxlength="500"><br>
+
+  <input type="checkbox" id="agid" name="agN">
+  <label for="agid">개인정보 수집에 동의합니다.</label><br><br>
+
+  <button type="submit">신청하기</button>
+</form>
+
+<script>
+const $formN = document.forms.formN;
+
+$formN.onsubmit = function(event) {
+  event.preventDefault();
+
+  const name = this.nameN.value.trim();
+  const email = this.emailN.value.trim();
+  const gender = this.querySelector('input[name="genderN"]:checked')?.value;
+  const date = this.dateN.value;
+  const request = this.rqN.value.trim();
+  const agreed = this.agN.checked;
+
+  // 이름 확인
+  if (!name) {
+    alert("이름을 입력하세요.");
+    this.nameN.focus();
+    return false;
+  }
+
+  // 이메일 유효성 검사
+  if (!email.includes("@")) {
+    alert("이메일 주소에 @를 포함해 주세요.");
+    this.emailN.focus();
+    return false;
+  }
+  if (email.endsWith("@")) {
+    alert("@ 뒤에 도메인을 입력해 주세요. 예: example@domain.com");
+    this.emailN.focus();
+    return false;
+  }
+
+  // 성별 확인
+  if (!gender) {
+    alert("성별을 선택해 주세요.");
+    return false;
+  }
+
+  // 날짜 선택 확인
+  if (!date) {
+    alert("참여 일자를 선택해 주세요.");
+    return false;
+  }
+
+  // 개인정보 동의 여부
+  if (!agreed) {
+    alert("개인정보 수집에 동의해야 신청할 수 있습니다.");
+    return false;
+  }
+
+  // 출력 확인용
+  alert(`이름: ${name}\n이메일: ${email}\n성별: ${gender}\n일자: ${date}\n요청사항: ${request}\n동의여부: ${agreed ? "동의" : "미동의"}`);
+};
+
+// 요청사항 글자 수 표시
+const rqInput = document.getElementById("rqid");
+const counter = document.getElementById("counter");
+
+rqInput.addEventListener("input", function() {
+  counter.textContent = rqInput.value.length;
+});
+</script>
+
+</body>
+</html>
