@@ -2,7 +2,7 @@
 9.인풋관련태그
 
 1코드 추가 20250709
-2책코드 수정중 20250709
+2책코드 수정중 page 147까지 정리 20250709
 3
 
 
@@ -12,7 +12,7 @@ HTML+CSS+자바스크립트 웹 표준의 정석
 
 JeongHoon 20250708
 
-html 인풋 정리 사이트 
+html 인풋 정리 
 
 -->
 <!DOCTYPE html>
@@ -63,16 +63,27 @@ html 인풋 정리 사이트
         <p>name= 라디오버튼과 체크박스는 하나의 그룹이므로 같은속성으로 지정</p>
         <br>
         <p>numbe : 숫자를 입력하는 스핀박스, 상품 개수등을 쓸때</p>
-        <p>range : 범위를 입력하는 슬라이드 막대, 볼륨조절등 정확할 필요는 없을때 값을 크거나 작게 변경할때</p>
-
+        <p>range : 범위를 입력하는 슬라이드 막대, 볼륨조절등 정확할 필요는 없을때 값을 크거나 작게 변경할때, 바뀌는 값을 표시하려면 자바스크립트를 이용해야함 </p>
+        
+        <p>min : 필드에 입력가능한 최소값, 기본값 0</p>
+        <p>max : 필드에 입력가능한 최대값, 기본값 100</p>
+        <p>step : 숫자간격, 기본값 1</p>
+        <p>value : 필드에 표시할 초기값</p>
 
         <hr>
-        <h3></h3>
+        <h3>날짜, 달력을 넣으려면</h3>
+        <br><input type="date|month|week"><br>
         <input type="date">
         <input type="month">
         <input type="week">
         <input type="datetime-local">
 
+        <p>min : 시작 날짜, 범위제한</p>
+        <p>max : 마지막 날짜, 범위제한</p>
+        <p>step : 스핀 박스의 화살표를 클릭할경우 증감시킬 크기</p>
+        <p>value : 기본 표시 날짜</p>
+
+        <hr>
         <input type="submit">
         <input type="reset">
         <input type="button">
