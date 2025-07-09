@@ -7,10 +7,10 @@
 
 class Student
 {
-    constructor(param)
+    constructor(name)
     {
         this.group=1;
-        this.inputp=param;
+        this.name=name;
     }
     introduce()
     {
@@ -35,14 +35,15 @@ let studi3 = new Student("3길동");
 //name 접근 불가능 : undefined 
 //이유 : 전역변수가 아니여서
 
-//console.log(typeof Student.name1);
+console.log(typeof Student.group);
+console.log(typeof studi1.name);
 //클래스의 변수 undefined 
 //이유 : 인스턴스 생성시 생김
-//console.log(typeof Student.group);
+console.log(typeof Student.group);
 //클래스의 변수 undefined
 //이유 : 인스턴스 생성시 생김
-// console.log(typeof Student.constructor);
-// console.log(typeof Student.constructor.name1);
+ console.log(typeof Student.constructor);
+console.log(typeof Student.constructor.name1);
 
 // console.log(typeof Student.constructor.group);
 
