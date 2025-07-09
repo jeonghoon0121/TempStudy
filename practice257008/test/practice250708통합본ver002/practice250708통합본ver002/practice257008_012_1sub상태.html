@@ -137,10 +137,6 @@
         height:700px;
         margin:10px auto;
       }
-    #area3
-    {
-        color:white;
-    }
         </style>
         <link rel="stylesheet" href="css/register.css">
     </head>
@@ -172,19 +168,9 @@
             <!--article 영역>-->
             <article id="testst6">
                     <div id="containera">
-                        <h1>KD GYM</h1>
-                        <h3>최신 머신 zone</h3>
-                        <img src="images/sub1머신.png" width="100%" height="400px" alt="최신머신존">
-                        <h3>프리웨이트 zone</h3>
-                        <img src="images/sub1프리.png" width="100%" height="400px" alt="프리웨이트존">
-                        <h3>유산소 zone</h3>
-                        <img src="images/sub1유산소.png" width="100%" height="400px" alt="유산소존">
-                        <h3>스트레칭존</h3>
-                        <img src="images/sub1스트.png" width="100%" height="400px" alt="스트레칭존">
-                        <h3>넓은 샤워장</h3>
-                        <img src="images/sub1샤워장.png" width="100%" height="400px" alt="샤워장">
-                        <h3>회원복 무료대여</h3>
-                        <img src="images/sub1회원복.png" width="100%" height="400px" alt="회원복 대여">
+                        <h1>Mysatus</h1>
+                        <label for=weight >무게</label><input type="text" id="weight" name="weightname">
+                        <button onclick="AA(weight);">전송</button>
                     </div>           
                             </article>
  
@@ -199,5 +185,12 @@
         </footer>
 
     </div>
+    <script>
+        function AA(name) 
+        {
+            alert(`${name}전송`);
+        }
+
+    </script>
 </body>
 </html>
