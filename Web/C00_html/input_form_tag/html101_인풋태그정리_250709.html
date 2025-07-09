@@ -1,0 +1,105 @@
+<!--
+9.인풋관련태그
+
+1코드 추가 20250709
+2책코드 수정중 20250709
+3
+
+
+참고
+kd 수업
+HTML+CSS+자바스크립트 웹 표준의 정석
+
+JeongHoon 20250708
+
+html 인풋 정리 사이트 
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>인풋_태그_정리</title>
+<style>
+    input
+    {
+        display:block;
+        margin:10px;
+    }
+</style>
+</head>
+<body>
+<h1>인풋태그정리</h1>    
+    <div>
+        <h3>text input tag</h3>
+            <input type="text"><label>text</label>
+            <input type="password"><label>password</label>
+            <input type="url"><label>url</label>
+            <input type="email"><label>email</label>
+            <input type="tel"><label>tel</label>
+        <p>
+            size= 화면에 몇글자가 보이도록 할것인지 지정 
+            최대 10개 입력가능한 필등[ size가 5이면 
+            5개만 보이고 나머지 5개는 보이지 않음
+        </p><p>
+            value= 텍스트필드에 보여지는 내용, 
+                    빈 텍스트필드에는 비어있음
+                    비밀번호에서는 쓰이지 않음
+        </p>
+            maxlength= 텍스트 필드와 비밀번호 필드에서 입력가능한 최대 문자수
+        </p>
+
+        <hr>
+        <h3>checkbox, radio, number, range</h3>
+            <input type="checkbox"><label>checkbox</label>
+            <input type="radio"><label>radio</label>
+            <input type="number"><label>number</label>
+            <input type="range"><label>range</label>
+
+        <p>checkbox= 2개이상 토글기능/ radio=1개만 토글없음 </p>
+        <p>value=선택된 체크박스,라디오버튼을 서버에게 알려줄때 값, 영문또는 숫자</p>
+        <p>checked=기본으로 선택하고싶을때</p>
+        <p>name= 라디오버튼과 체크박스는 하나의 그룹이므로 같은속성으로 지정</p>
+        <br>
+        <p>numbe : 숫자를 입력하는 스핀박스, 상품 개수등을 쓸때</p>
+        <p>range : 범위를 입력하는 슬라이드 막대, 볼륨조절등 정확할 필요는 없을때 값을 크거나 작게 변경할때</p>
+
+
+        <hr>
+        <h3></h3>
+        <input type="date">
+        <input type="month">
+        <input type="week">
+        <input type="datetime-local">
+
+        <input type="submit">
+        <input type="reset">
+        <input type="button">
+        <input type="image">
+
+        <input type="file">
+        <input type="hidden">
+
+
+        
+
+
+        
+        
+
+
+
+
+
+
+        
+
+
+
+
+
+
+    </div>
+</body>
+</html>
