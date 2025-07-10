@@ -1,10 +1,10 @@
 <!--
-9.인풋관련태그
+9.인풋관련태그_1
 
 1코드 추가 20250709
 2책코드 수정중 page 147까지 정리 20250709
-3
-
+3코드테스트 page 151까지 정리 202500710
+4인풋내용이 많아서 두파일로 분할
 
 참고
 kd 수업
@@ -84,33 +84,45 @@ html 인풋 정리
         <p>value : 기본 표시 날짜</p>
 
         <hr>
-        <input type="submit">
-        <input type="reset">
+        <input type="submit" value="전송">
+        <input type="reset" value="리셋">
+        <input type="image" src="경로" alt="대체 텍스트">
+        
         <input type="button">
-        <input type="image">
-
-        <input type="file">
+        <input type="file" value="버튼에 표시할 내용">
         <input type="hidden">
 
+        <input type="button" value="공지 창 열기" onclick="window.open('notice.html','_blank','width=300,height=400')">
 
+        <pre>
+            submit : 폼에 입력한 정보를 서버로 전송, return,php에서 처리
+            reset : input의 정보를 모두 제거
+            image : 이미지 버튼
+            button : 기본버튼
+            file: 파일첨부
+            hidden : 히든필드를 만들 때 사용, 로그인등에 이용
+
+        </pre>
+
+        <input type="hidden" name="url" value="사이트를 통한 직접 로그인">
+
+        <form onsubmit="return submit1()">
+        <label>아이디: <input type="text" id="user_id" size="10"></label>
+        <label>비밀번호: <input type="password" id="user_pw" size="10"></label>
+        <!--<input type="submit" value="로그인 " onclick="window.open('notice.html','_blank','width=300,height=400')">> -->
+        <input type="submit">
+        </form>
         
-
-
-        
-        
-
-
-
-
-
-
-        
-
-
-
-
-
-
     </div>
+        <script>
+            function submit1()
+            {
+                const $textname1=document.querySelector("#user_id");
+                const $pwname1=document.querySelector("#user_pw");
+                //alert(`${$textname1}`)
+                alert(`${$textname1.value}`+$textname1.value);//id출력
+                alert(`${$pwname1.value}`+$pwname1.value);//pw출력
+            }    
+        </script>
 </body>
 </html>
