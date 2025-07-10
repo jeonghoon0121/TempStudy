@@ -1,0 +1,58 @@
+<!--
+501 이벤트 핸들러 어트리뷰트 마우스이벤트 테스트 
+
+1 이벤트 핸들러 어트리뷰트 마우스 이벤트 작성 250710
+2
+3
+
+참고
+HTML+CSS+자바스크립트 웹 표준의 정석 p270~
+JeongHoon 20250710
+-->
+
+
+<!--
+    display:block;
+    display: inline-block;
+    display: inline;
+    display: none;
+
+
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test_event1</title>
+    <style>
+        div
+        {
+            height:100px;
+            width:100px;
+            background-color: yellow;
+            margin:10px;
+
+        }
+    </style>
+</head>
+<body>
+    <h1>test_event1</h1>
+        <input type="button" value="click" onclick="alert(`클릭`)">
+
+        <input type="button" value="dbclick" ondblclick="alert(`더블클릭`)">
+
+        <div onmousedown="alert(`클릭`)">mousedown</div>
+
+        <div onmousemove="alert(`mousemove`)">mousemove</div>
+        
+        <div onmouseover="alert(`mouseover`)">mouseover</div>
+
+        <div onmouseout="alert('mouseout')">mouseout</div>
+
+        <div onmouseup="alert(`mouseup`)">mouseup</div>
+
+</body>
+</html>
