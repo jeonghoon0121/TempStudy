@@ -1,0 +1,87 @@
+<!--
+9.인풋관련태그
+
+1수업시간 내용 및 책코드 추가 20250708
+2코드정리 20250709
+3인풋,폼,이벤트,영역관련 전송 테스트 , 영역이 문제임 20250709
+
+참고
+kd 수업
+HTML+CSS+자바스크립트 웹 표준의 정석
+
+JeongHoon 20250708
+
+html 인풋 정리 사이트 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html9_input태그정리</title>
+</head>
+<style>
+    *{background-color: white;}
+    #html
+    {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+    #result {
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    transition: background-color 0.3s ease;
+    }
+
+
+</style>
+<body>
+    <h1>input 태그 정리 및 테스트</h1>
+        <h4>form 관련 태그</h4><br>
+            <p>
+                form : 사용자가 웹사이트로 정보를 보낼 수 있는 요소
+                    method : 받는 서버의 클래스 ex/get, post
+                    name : 자바스크립트 폼을 제어할 때 사용
+                    action : 태그 안의 내용을 처리해 줄 서버프로그램
+                    target : 
+
+            </p>
+        <hr>
+        <div id="result"><br>
+        <form id="formid1" name="" action="" autocomplete="">
+            <fieldset>
+                <legend>레전드1</legend>
+                <label for="text1">가</label>
+                <input type="text" id="text1" name="text1" >
+                <label for="text2">나</label>
+                <input type="text" id="text2" name="text2">
+                <label for="text3">다</label>
+                <input type="text" id="text3" name="text3">
+            </fieldset>
+            <fieldset>
+                <legend>레전드2</legend>
+                <label for="text4">가</label>
+                <input type="text" id="text4" name="text4">
+                <label for="text5">나</label>
+                <input type="text" id="text5" name="text5">
+                <label for="text6">다</label>
+                <input type="text" id="text6" name="text6">
+            </fieldset>
+            <input type="button" value="전송" onclick="btn1(`green`)">green</button>
+            <input type="button" value="취소"></button>
+        </form>
+        <hr>
+        </div>
+</body>
+    <script>
+        function btn1(color) 
+        {
+			let result = document.querySelector('#result');
+			result.style.backgroundColor = color;
+
+
+		}
+    </script>
+</html>

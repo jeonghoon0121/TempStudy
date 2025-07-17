@@ -1,0 +1,52 @@
+<!--
+102 이벤트 핸들러 어트리뷰트 키보드이벤트 테스트 
+
+1 이벤트 핸들러 어트리뷰트 키보드 이벤트 작성 250710
+2.
+3
+
+참고
+HTML+CSS+자바스크립트 웹 표준의 정석 p580~
+JeongHoon 20250710
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js102_event_attribute.key</title>
+    <style>
+        input
+        {
+            margin : 1px;
+            background-color: blueviolet;
+            width:100px;
+            height:100px;
+        }
+    </style>
+</head>
+<body>
+    <!--
+    키보드 이벤트를 div에서 작동시키려면 포커스를 div영역안에 위치시켜야한다. 
+    또한 인풋 버튼을 누른뒤에 키보드를 작동시켜야 작동된다. 
+
+    이벤트 핸들러 어트리뷰트는 함수참조가 아닌 함수 호출문을 할당
+    -->
+    <h1>js102_event_attribute.key</h1>
+        <ul>
+            <li>keydown</li>
+            <li>keypress</li>
+            <li>keyup</li>
+        </ul>
+        <h3>keydown</h3>
+            <input type="buttonf" value="keydown" onkeydown="alert(`keydown`)">
+                <p>사용자가 키를 누르는동안 발생</p>
+        <h3>keypress</h3>
+            <input type="button" value="keypress" onkeypress="alert(`keypress`)">
+                <p>사용자가 키를 눌렀을 때 이벤트가 발생</p>
+        <h3>keyup</h3>
+            <input type="button" value="keyup" onkeypress="alert(`keyup`)">
+        <p>사용자가 키를 손에서 뗄때 이벤트가 발생</p>
+</body>
+</html>
+
