@@ -13,7 +13,7 @@ abcdefghijklmnopqrstuvwxyz
     public void prac6(){
        for(int i=97;i<123;i++){
 //           System.out.println("start");
-           System.out.println((char)(i));
+           System.out.print((char)(i));
        }
     }
 }
