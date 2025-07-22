@@ -1,4 +1,4 @@
-package com.ohgiraffers.practice01.Calculator;
+package com.ohgiraffers.practice01;
 
 public class Calculator {
     /*+ checkMethod():void                    // 함수 호출 확인용 메소드

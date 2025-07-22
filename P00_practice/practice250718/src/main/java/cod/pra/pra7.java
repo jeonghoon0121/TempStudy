@@ -29,23 +29,17 @@ public class pra7
         if(inputnum<0){
             System.out.println("음수error");
         }
-        else if((inputnum%2)==0){
-            //짝수
+        
             for(int p=1;p<=inputnum;p++)
             {
-                System.out.println("짝");
+                if(p%2==0) {
+                    System.out.println("마");
+                }        
+                else{
+                    System.out.println("토");
+                                        
+                }
+            
             }
-        }
-        else if((inputnum%2)!=0){
-            //홀
-            for(int t=1;t<=inputnum;t++)
-            {
-                System.out.println("짝");
-            }
-
-        }
-        else{
-//            System.out.println("error");
-        }
     }
 }

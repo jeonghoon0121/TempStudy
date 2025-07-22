@@ -22,10 +22,11 @@ public class pra5 {
         Scanner sc= new Scanner(System.in);
         String inputString;
 
-        System.out.println("문자열입력 :");
+        System.out.print("문자열입력 :");
         inputString=sc.nextLine();
+
         char[]mun=inputString.toCharArray();    //String을 char[]로 변경
-        System.out.println("start");
+//        System.out.println("start");
         for(int i=0; i<mun.length; i++)
         {
             System.out.println(i+":"+mun[i]);

@@ -1,6 +1,4 @@
-package com.ohgiraffers.practice01.Application;
-
-import com.ohgiraffers.practice01.Calculator.Calculator;
+package com.ohgiraffers.practice01;
 
 public class Application {
     /*
