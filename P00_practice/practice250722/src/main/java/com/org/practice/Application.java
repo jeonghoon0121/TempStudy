@@ -34,6 +34,7 @@ import java.util.Scanner;
 
 public class Application {
     public static void main(String[] args) {
+        //VendingMachine vendMachine = new VendingMachine("사이다");
         VendingMachine vendMachine = new VendingMachine();
         Scanner sc= new Scanner(System.in);
         System.out.println("1돈넣기, 2버튼 3종료");
@@ -52,7 +53,6 @@ public class Application {
                 System.out.println("return 0");
                 break;
             }
-
         }
     }
 }
