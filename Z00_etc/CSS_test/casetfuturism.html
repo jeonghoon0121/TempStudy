@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>MU/TH/UR 6000</title>
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #000;
+      color: #33ff33;
+      font-family: 'VT323', monospace;
+      font-size: 1.4em;
+      padding: 40px;
+      margin: 0;
+    }
+
+    .terminal {
+      border: 2px solid #33ff33;
+      background-color: #111;
+      padding: 20px;
+      box-shadow: 0 0 20px #33ff33;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .prompt {
+      margin-top: 20px;
+    }
+
+    input[type="text"] {
+      background-color: #000;
+      color: #33ff33;
+      border: none;
+      border-bottom: 1px solid #33ff33;
+      font-family: inherit;
+      font-size: 1em;
+      width: 100%;
+      outline: none;
+    }
+
+    .response {
+      margin-top: 20px;
+      border-top: 1px dashed #33ff33;
+      padding-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="terminal">
+    <h2>MU/TH/UR 6000 :: CENTRAL CONTROL SYSTEM</h2>
+    <p class="prompt">>>> Enter command:</p>
+    <input type="text" id="commandInput" onkeydown="handleCommand(event)">
+    <div class="response" id="responseArea">
+      >>> System waiting...
+    </div>
+  </div>
+
+  <script>
+    function handleCommand(e) {
+      if (e.key === 'Enter') {
+        const input = document.getElementById('commandInput').value.toLowerCase();
+        const response = document.getElementById('responseArea');
+
+        if (input.includes('order 937')) {
+          response.innerText = '>> SPECIAL ORDER 937: PRIORITY ONE DIRECTIVE. RETURN ALIEN ORGANISM FOR ANALYSIS. CREW EXCHANGEABLE.';
+        } else if (input.includes('crew')) {
+          response.innerText = '>> CREW STATUS: BIOSIGNS NOMINAL. AWAITING INSTRUCTION.';
+        } else {
+          response.innerText = '>> UNKNOWN INPUT. PLEASE REPEAT.';
+        }
+
+        document.getElementById('commandInput').value = '';
+      }
+    }
+  </script>
+</body>
+</html>

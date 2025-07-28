@@ -1,0 +1,98 @@
+<!--
+108. 회원가입 양식
+
+1코드 추가 20250713
+2
+
+참고
+HTML+CSS+자바스크립트 웹 표준의 정석
+
+JeongHoon 20250711
+회원가입양식_1영역
+
+책코드 5/results/result3 을 참고하여CSS없이 만들기
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>108. 회원가입 양식</title>
+    <style>#container1
+    {
+        width: 1000px;
+        margin: 10px auto;
+        background-color: lightgray;
+    }
+</style>
+</head>
+<body>
+<!--
+    div영역 
+        -h1
+        -form
+            -fieldset -> list, dropdown menut
+            -fieldset radio
+        button
+-->
+<!--
+    sth id name value 
+
+    아이디 id1 idn1 
+    비밀번호 pw1    pwn1    
+    비밀번호확인 pw2    pwn2    
+
+    가입경로 for path
+    셀렉ㅇ트 id path
+         옵션   value blog
+         옵션   value search
+         옵션   value sns
+         옵션   value etc
+
+    메모 for memoi
+        id memoi
+
+-->
+    <div id="container1">
+        <h1>abcd</h1>
+        <form>
+            <fieldset>
+                <legend>사용자 정보</legend>
+
+                    <ul>
+                    <li><label for="id1">아이디 : </label><input id="id1" type="text"   name="idn1" autofocus placeholder="4자 ~10자 " required></li>
+                    <li><label for="pw1">비밀번호 : </label><input id="pw1" type="password" name="pwn1" placeholder="문자와 숫자, 특수 기호 포함" required></li>
+                    <li><label for="pw2">비밀번호 확인 : </label><input id="pw2" type="password" name="pwn1" required></li>
+
+                    <li><label for="path">가입경로 : </label>
+                        <select id="path">
+                            <option value="blog">블로그</option>
+                            <option value="search">검색</option>
+                            <option value="sns">SNS</option>
+                            <option value="etc">기타</option>
+                        </select>
+                    </li>
+                    <li><label for="moemoi">메모</label>
+                        <textarea id="memoi" cols="20" rows="4" placeholder="남긴 말이 있다면 여기에"></textarea>
+                    </li>
+                    </ul>
+
+            </fieldset>
+            <fieldset>
+                <legnend>이벤트와 새로운 소식</legnend>
+                <ul>
+                    <li>
+                        <input id="r1" type="radio" name="eventn" value="eventy" checked>
+                        <label for="r1">메일 수신</label>
+                        
+                        <input id="r2" type="radio" name="eventn" value="eventn">
+                        <label for="r2">메일 수신거부</label>
+                    </li>
+                </ul>
+            </fieldset>
+        </form>
+        <button type="submit">주문</button>
+        <button type="reset">취소</button>
+    </div>
+</body>
+</html>

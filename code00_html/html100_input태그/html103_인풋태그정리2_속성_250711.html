@@ -1,0 +1,50 @@
+<!--
+103.인풋관련태그_2
+
+1코드 추가 20250711
+
+참고
+kd 수업
+HTML+CSS+자바스크립트 웹 표준의 정석
+
+JeongHoon 20250708
+
+html 인풋 관련 속성 정리
+autofocus
+placeholder
+readonly
+required
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>103.인풋관련태그_2</title>
+    <style>
+        input, label
+        {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <form>
+        <label for="user_id1">이름:</label>
+        <input type="text" id="user_id1" autofocus>
+        <p>autofocus</p>
+        <label for="user_id2">이름:</label>
+        <input type="text" id="user_id2" placeholder="이름을 입력해주세요,">
+        <p>placeholder</p>
+        <label for="user_id3">이름:</label>
+        <input type="text" id="user_id3" readonly value="이름입력불가">
+        <p>readonly</p>
+        <label for="user_id4">이름:</label>
+        <input type="text" id="user_id4" required >
+        <p>required</p>
+        <input type="submit">
+        </form>
+    </div>
+</body>
+</html>

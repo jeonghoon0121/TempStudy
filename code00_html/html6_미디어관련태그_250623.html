@@ -1,0 +1,111 @@
+<!--
+6_미디어관련태그
+
+1수업시간 작성 20250623
+2책 코드 추가 20250628
+3코드 테스트, 성공 20250628
+4 수정중 20250628
+5 수정중 20250629
+6 수정 완료 20250630
+7   
+
+
+참고
+kd 수업
+HTML+CSS+자바스크립트 웹 표준의 정석
+
+JeongHoon 20250623
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>미디어관련태그</title>
+</head>
+<body>
+    <!--
+        <object>
+        <embed>
+        
+            비디오 파일포맷 mp4 webm
+            오디오 mp3 mp4 m4a
+
+        <audio>
+        <video>
+    
+    -->
+    <h1>미디어 관련 태그</h1>
+    <!--
+        <object>
+            오디오, 비디오, PDF 등 다양한 멀티미디어 파일
+            
+            기본형
+            <object width="너비" height="높이" data="파일"></object>
+        <embed>
+            초기 브라우저 까지 지원
+            src 속성을 사용해 멀티미디어 파일 삽입
+            width,height 특성 사용가능 
+        -->
+    
+        <h3>object 태그</h3>
+            <object width="200" height="200" data="sample/audio/major.mp3"></object>
+        <br><hr><br>
+        <h3>embed  태그</h3>
+            <embed src="sample/audio/major.mp3" width="너비" height="높이">
+        <br><hr><br>
+        
+        <h3>오디오 관련 태그</h3>
+            <audio src="sample/audio/major.mp3" controls="controls" loop="loop">
+            </audio>
+            
+        <br><hr><br>
+        <h3>비디오 관련 태그</h3>
+
+            <video 
+            src="sample/video/video1.mp4"
+            controls="controls"
+            ></video>
+
+        <br><hr><br>
+        <h3>오디오, 비디오 태그의 속성</h3>
+        <br>
+            <!--
+            <audio src="sample/audio/major.mp3"></audio>
+
+            controls    플레이어 화면에 컨트롤 바를 표시
+            autoplay    자동실행 ->자동재생 안되도록 하는게 좋다. 
+            loop        반복실행
+            meted       무음
+            preload     파일을 어떻게 로딩할것인지 종류는 auto met
+            width
+            height
+            poster="파일이름" video tags 에서 사용하는 속성으로 비ㅣㄷ오가 재생되기전까지 화면에 표시될 포스터의 이미지를 저장
+
+            샘플이미지 
+            poster="sample/dfd.img"
+            -->
+            <audio src="sample/audio/major.mp3" controls="controls" loop="loop">
+            </audio>
+            <video src="sample/video/video1.mp4" controls="controls" poster="sample/image/flower3.PNG"
+            ></video><!--샘플 이미ㅣ지 -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

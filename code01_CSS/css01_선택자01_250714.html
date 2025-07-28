@@ -1,0 +1,100 @@
+<!--
+1.강의코드 + 책코드 정리 및 테스트 20250714
+2.
+3.
+
+모든 선택자, 아이디 선택자, 클래스 선택자, 기본 속성 선택자
+후손 선택자, 자손 선택자, 동위 선택자, 반응 선택자, 상태 선택자
+일반구조 선택자, 문자 선택자 
+
+클래스 우선순위 
+
+20250714 Jeonghoon
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css01_선택자01_250714</title>
+    <style>
+        /*모든 선택자*/
+        *
+        {
+            color: red;
+        }
+        /*태그 선택자*/
+        p
+        {
+            color:blue;
+        }
+        /*아이디 선택자*/
+        #id1
+        {
+            color: yellow;
+        }
+        #id2
+        {
+            color: green;
+        }
+        /*클래스 선택자*/
+        .class1 
+        {
+            color:aquamarine;
+        }
+        .class2 
+        {
+            color:pink;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>CSS 선택자</h1>
+        <h2>기본 선택자</h2>
+        <p>특정 html 태그를 선택할 때 사용하는 기능으로 태그를 선택하여 원하는 스타일과 기능을 적용</p><hr>
+        
+        <h2>모든 선택자</h2>
+        <p>html 문서안의 모든 태그를 선택<br>
+            *{}</p><hr>
+
+        <h2>태그 선택자</h2>
+        <p>html 문서안의 같은 태그를 모두 선택<br>
+            p{}</p><hr>
+
+        <h2>아이디 선택자</h2>
+        <p>html 문서안의 해당하는 아이디의 속성 값을 가진 태그만 선택</p>
+            <ul>
+                <li>idx classx</li>
+                <li>idx classx</li>
+                <li id="id1">id1 classx</li>
+                <li id="id2">id2 classx</li>
+                <li id="id1" class="class1">id1 class1</li>
+                <li id="id2" class="class2">id2 class2</li>
+            </ul>
+        <p>아이디1 yellow 아이디2 green</p>
+        <hr>
+        <h2>클래스 선택자</h2>
+        <p>html 문서안의 여러개의 태그를 동일한 클래스명으로 지정하여 선택</p>
+            <ul>
+                <li>idx classx</li>
+                <li>idx classx</li>
+                <li class="class1" >idx class1</li>
+                <li class="class2">idx class2</li>
+                <li id="id1" class="class1">id1 class1</li>
+                <li id="id2" class="class2">id2 class2</li>
+            </ul>
+        <p>클래스1 aquamarine 클래스2 pink</p>
+        <hr>
+        <h2>기본 속성 선택자(속성과 속성값)을 사용</h2>
+
+        <h2>후손 선택자</h2><hr>
+        <h2>자손 선택자</h2><hr>
+        <h2>동위 선택자</h2><hr>
+        <h2>반응 선택자</h2><hr>
+        <h2>상태 선택자</h2><hr>
+        <h2>일반구조 선택자</h2><hr>
+        <h2>문자 선택자</h2><hr>
+        
+</body>
+</html>

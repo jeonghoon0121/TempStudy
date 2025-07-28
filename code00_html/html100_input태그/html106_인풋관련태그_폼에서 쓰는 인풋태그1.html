@@ -1,0 +1,66 @@
+<!--
+106_인풋관련태그_폼에서 쓰는 인풋태그1
+-textarea, select, option, 
+-dropdown list, textarea 를 회원가입영역에 추가하기
+
+1코드 추가 20250713
+2
+
+참고
+HTML+CSS+자바스크립트 웹 표준의 정석
+
+<textarea>내용<textarea> 속성 cols rows
+-> 메모 필드를 만들 수 있음
+    게시판에서 글을 입력할때
+    회원가입 양식에서 사용자 약관을 포ㅛ시할 때 자주 사용
+    style="resize: none;"로 사이즈 변화를 막을 수 있다. 
+
+
+
+<select> 
+    <option value="값1">내용1</option>
+    <option value="값2">내용2</option>
+</select>
+
+->select의 사이즈 화면에 표시할 드롭다운 항목의 개수를 지정
+multiple 드롭다운 목록에 둘 이상의 항목을 선택할 때 사용
+
+->option 
+value 해당항목을 선택할 때 서버로 넘겨줄 값
+selected 해당학목을 선택 할 때 선택해서 보여 줄 항목을 지정 
+
+
+<button>
+
+
+
+
+
+JeongHoon 20250711
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>106_인풋관련태그_폼에서 쓰는 인풋태그</title>
+</head>
+<body>
+    <h1>106_인풋관련태그_폼에서 쓰는 인풋태그</h1>
+        <h3>textarea</h3>
+            <label for="memo">메모</label>
+            <textarea id ="memo" cols="40"rows="4"></textarea>
+        <hr>
+        <h3>select,option,dropdown</h3>
+            <label for="prod1">상품 선택</label>
+            <select id="prod1">
+                <option value="special_3" selected>선물용 3kg</option>
+                <option value="special_5" >선물용 5kg</option>
+                <option value="family_5" >가정용 5kg</option>
+                <option value="family_3" >가정용 3kg</option>
+            </select>
+        <h3>button</h3>
+
+
+</body>
+</html>

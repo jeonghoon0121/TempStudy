@@ -1,0 +1,101 @@
+<!--
+111 이벤트 핸들러 프로퍼티 마우스이벤트 테스트 
+
+1 이벤트 핸들러 프로퍼티 문서로딩 이벤트 작성 250710
+2. 마우스 버튼 테스트까지 완료 250710
+3 마우스 컨트롤 수정 추가 예정 
+
+참고
+HTML+CSS+자바스크립트 웹 표준의 정석 p581~
+JeongHoon 20250710
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js111_event_property.mouse</title>
+</head>
+<body>
+    <h1>js111_event_property.mouse</h1>
+    <ul>
+        <li>click</li>
+        <li>dbclick</li>
+        <li>mousedown</li>
+        <li>mousemove</li>
+        <li>mouseover</li>
+        <li>mouseout</li>
+        <li>mouseup</li>
+    </ul>
+        <h3>click</h3>
+        <button id="btn1">버튼1</button>
+        <button id="btn2">버튼2</button>
+        <button id="btn3">버튼3</button>
+        <hr>
+
+    <script>
+        const $btn1 = document.querySelector('#btn1');
+        const $btn2 = document.querySelector('#btn2');
+        const $btn3 = document.querySelector('#btn3');
+
+        $btn1.onclick = function() 
+        {
+            alert(`${$btn1}`);
+        }
+        $btn2.onclick = function() 
+        {
+            alert(`${$btn2}`);
+
+        }
+        $btn2.onclick = function() 
+        {
+            alert('button2 덮어쓰기');
+            //프로퍼티방식은 1개의 이벤트 핸들러만 가능하다. 
+        }
+
+        $btn3.onclick=function()
+        {
+            alert(`${$btn3}`);
+            $btn3.style.backgroundColor = "hotpink";
+
+        }
+
+    </script>
+
+        <h3>dbclick<h3>
+            <button id="btn4">버튼4</button>
+            <button id="btn5">버튼5</button>
+            <button id="btn6">버튼6</button>
+        <hr>
+        
+        <script>
+            const $btn4=document.querySelector("#btn4")
+            const $btn5=document.querySelector("#btn5")
+            const $btn6=document.querySelector("#btn6")
+            $btn4.ondblclick=function()
+            {
+                alert("버튼4 doubleclick");
+                $btn4.style.backgroundColor="hotpink"
+            }
+            $btn5.ondblclick=function()
+            {
+                alert("버튼5 doubleclick");
+                $btn5.style.backgroundColor="hotpink"
+            }
+            $btn6.ondblclick=function()
+            {
+                alert("버튼6 doubleclick");
+                $btn6.style.backgroundColor="hotpink"
+            }
+        </script>
+
+        <h3>mousedown<h3><hr>
+        <h3>mousemove<h3><hr>
+        <h3>mouseover<h3><hr>
+        <h3>mouseout<h3><hr>
+        <h3>mouseup<h3><hr>
+
+
+
+</body>
+</html>

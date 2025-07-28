@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to KD GYM</title>
+    <style> 
+    
+    * 
+    {   /*마진0,패딩0,박스사이즈 테두리까지* 출처:책코드*/
+        margin:0;   /* 마진 리셋 */
+        padding:0;   /* 패딩 리셋 */
+        box-sizing: border-box;   /* 박스 영역은 테두리까지 */ 
+    }
+    a 
+    {/*앵커 밑줄 모두 없애기 출처 : 책코드 */
+        text-decoration:none;
+        font-style: bold;  /* 텍스트 링크 밑줄 없애기 */ 
+    }
+    a:visited 
+    {
+        color: white;
+        font-style: bold; /* 또는 원하는 색상으로 변경 */
+    }
+
+    #container
+    {/*중심을 맞추기 위해서 쓰는 전체영역 : 책코드 */
+        margin:0 auto;  /* 화면 중앙에 배치 */
+        width:1200px;    /* 너비 */
+        background-color: red;
+    }
+    ul 
+    {
+        list-style: none; /*앞 동그라미 없애기*/
+    }
+    a:hover 
+    {
+        color:red;
+        font-style:bold;
+    }
+/**********************************************************header, main, footer 영역3개*/
+    #area1 /*header*/
+    {
+        width: 100%;
+        height:100px;
+        background-color:grey;
+    }
+    #area2 /*main*/
+    {
+        background-color: bisque;
+        width: 100%;
+        height:1000px;
+    }
+    #area3 /*footer*/
+    {
+        background-color: black;
+        width: 100%;
+        height:200px
+    }
+    /*header main footer*/
+/***************************************************************************/
+    nav
+    {
+        background-color: black ;
+        float:right;   /* 오른쪽으로 플로팅 */
+        width:900px;   /*   너비 */  
+        height:100px;   /* 메뉴 영역 높이 */  
+        /*padding-top:1px;   메뉴를 아래로 내리기 위해 */
+        /*margin-left: -50pt; 메뉴이동*/  
+    }
+    #logoarea
+    {
+        background-color: black;
+        float:left;   /* 왼쪽으로 플로팅 */ 
+        width:300px;   /*  너비 */    /* 높이 *//* line-height:100px; 세로로 중간에 맞춤 - 줄간격을 높이 값과 같게  */
+        padding-left:20px;  /* 왼쪽에 여백 */
+        font-weight:700;
+        font-size:20px;
+
+    }
+    #logoid
+    { 
+        color:white;
+        float:left;   /* 왼쪽으로 플로팅 */ 
+        width:250px;   /*  너비           */ 
+        line-height:100px;
+        /*height:100px;   높이 */
+        
+        
+    }
+    #logoid:hover
+    {
+        color:red;
+        font-style:bold;
+    }
+    
+    #topMenu /*topmenu영역을 왼쪽으로 이동시킴*/
+    {  
+                margin-left: -5pt;
+    
+    }
+    #topMenu > li 
+    {
+        float:left;  /* 메뉴 항목을 왼쪽으로 플로팅 */ 
+        position: relative;  
+        /*padding :10px;*/
+    }
+    #topMenu > li > a
+    {
+        display:block;  /* 링크 텍스트는 블록으로 */ 
+        font-size:30px;
+        color:white;  /* 글자 색 */
+        font-weight:600;  /* 글자 굵기 */
+        /*padding:20px 60px;   패딩  */
+        padding-left: 20px;  /* 패딩 */ 
+        padding-right:20px;
+        margin:2px;
+        line-height:100px;    
+    }
+    #topMenu > li > a:hover 
+    {
+        color:red;
+        font-style:bold;
+    }
+/***************************************************************************/
+    
+    article/*main영역은 1000px*/
+    {
+        background-color:white;
+        height:900px;
+    }
+        </style>
+    </head>
+<body>
+    <div id="container"><!--가운데 정렬을 시키기 위함-->
+        <!--header 영역-->
+        <header id="area1">
+
+            <!--logo 영역-->
+            <div id="logoarea" >
+                <h1><a href="/TempStudy/practice257008/practice250708통합본/practice257008_012_1.html" target="_self" id="logoid">KD GYM</a></h1>
+            </div>
+            <!--nav 영역-->
+            <nav id="nav">
+                <ul id="topMenu">
+                    <li><a href="/TempStudy/practice257008/practice250708통합본/practice257008_012_2.html" target="_self" >GYM</a></li>
+                    <li><a href="" target="_self" >Program</a></li>
+                    <li><a href="practice257008_012_2" target="_self" >Contact</a></li>
+                    <li><a href="practice257008_012_2" target="_self" >My status</a></li>
+                    <li><a href="practice257008_012_2" target="_self" >로그인</a></li>
+                </ul>
+            </nav>
+
+        </header>
+
+        <!--main영역-->
+        <main id="area2">
+            
+            <!--article 영역>-->
+            <article id="testst6">
+                <h3>Main</h3>
+            </article>
+
+        </main>
+
+        <!--footer영역-->
+        <footer id="area3">
+상호명 : ABLE GYM FITNESS 주소 : 서울 노원구 상계동 337 다나프라자 지하1층
+상담번호 : 010-8239-0041(운영이사) 이메일 : ablegymfitness@naver.com
+제휴문의 : cjh6427@naver.com
+            <!--footer 영역-->
+        </footer>
+
+    </div>
+</body>
+</html>

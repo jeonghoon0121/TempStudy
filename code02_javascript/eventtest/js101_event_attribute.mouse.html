@@ -1,0 +1,60 @@
+<!--
+101 이벤트 핸들러 어트리뷰트 마우스이벤트 테스트 
+
+1 이벤트 핸들러 어트리뷰트 마우스 이벤트 작성 250710
+2. 키보드, 문서로딩, 폼이벤트 추가예정 250710
+3
+
+참고
+HTML+CSS+자바스크립트 웹 표준의 정석 p270~
+JeongHoon 20250710
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js101_event_attribute.mouse</title>
+    <style>
+        div
+        {
+            height:100px;
+            width:100px;
+            background-color: yellow;
+            margin:10px;
+
+        }
+    </style>
+</head>
+<body>
+    <!--
+    이벤트 핸들러 어트리뷰트는 함수참조가 아닌 함수 호출문을 할당
+    -->
+    <h1>js101_event_attribute.mouse</h1>
+        <h3>1마우스이벤트</h3>
+        <input type="button" value="click" onclick="alert(`클릭`)">
+
+        <input type="button" value="dbclick" ondblclick="alert(`더블클릭`)">
+
+        <div onmousedown="alert(`클릭`)">mousedown</div>
+        <p>사용자가 요소위에 마우스버튼을 눌렀을 때</p>
+        <p>왼쪽, 오른쪽 버튼 모두 허용됨</p>
+
+        <div onmousemove="alert(`mousemove`)">mousemove</div>
+        <p>사용자가 요소위에 마우스를 움직였을 때</p>
+
+        <div onmouseover="alert(`mouseover`)">mouseover</div>
+        <p>요소위에 마우스가 옮겨질때</p>
+
+        <div onmouseout="alert('mouseout')">mouseout</div>
+        <p>요소에서 마우스가 벗어날때</p>
+
+        <div onmouseup="alert(`mouseup`)">mouseup</div>
+        <p>마우스 포인터가 요소를 벗어날때 </p>
+
+        <hr>
+        
+</body>
+</html>
