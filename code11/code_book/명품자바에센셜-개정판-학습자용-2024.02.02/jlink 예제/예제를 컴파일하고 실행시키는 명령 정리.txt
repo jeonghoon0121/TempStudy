@@ -1,0 +1,7 @@
+javac --module-source-path . -d output -m com.checkMemory
+
+java --module-path output -m com.checkMemory/com.checkMemory.checkMemory
+
+jlink --module-path "c:\Program Files\Java\jdk-9\jmods";output --add-modules com.checkMemory --output app
+
+app\bin\java -m com.checkMemory/com.checkMemory.checkMemory
