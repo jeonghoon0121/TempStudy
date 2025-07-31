@@ -21,9 +21,15 @@ public class SimpleOperations {
     }
     public int countCharacter(String input, char ch){
         int countNumber=0;
-        for(int i=0;i<input.length();i++){
+        for(int i=0;i<input.length();i++)
+        {
             if(input.charAt(i)==ch)
+            {
                 countNumber++;
+            }
+            else{
+
+            }
         }
 
         return countNumber;
@@ -32,6 +38,7 @@ public class SimpleOperations {
         String changeString = "";
         for(int i = 0; i < input.length(); i++){
             changeString = changeString + input.charAt(input.length() - 1 - i);
+            System.out.println(changeString);
         }
         return changeString;
     }
