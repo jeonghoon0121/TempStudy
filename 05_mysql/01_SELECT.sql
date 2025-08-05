@@ -36,4 +36,5 @@ select concat('홍','','길동');
 
 -- 컬럼 별칭
 select concat('홍','','길동') as name;
+
 select concat('홍','','길동') as 'full name';
