@@ -1,13 +1,14 @@
-package com.ohgiraffers.section01.statement;
+package com.ohgiraffers.section02.preparedstatement;
 
 import com.ohgiraffers.model.dto.EmployeeDTO;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 import static com.ohgiraffers.common.JDBCTemplate.close;
 import static com.ohgiraffers.common.JDBCTemplate.getConnection;
@@ -18,25 +19,27 @@ public class Application5 {
 
         Connection con = getConnection();
 
-        Statement stmt = null;
+        PreparedStatement pstmt = null;
         ResultSet rset = null;
 
-        /* 한 행의 정보를 담을 DTO */
         EmployeeDTO selectedEmp = null;
-
-        /* 여러 DTO를 하나의 인스턴스로 묶기 위한 List */
         List<EmployeeDTO> empList = null;
 
-        String query = "SELECT * FROM EMPLOYEE";
+        Scanner sc = new Scanner(System.in);
+        System.out.print("조회할 이름의 성을 입력하세요 : ");
+        String empName = sc.nextLine();
+
+        String query = "SELECT * FROM EMPLOYEE WHERE EMP_NAME LIKE CONCAT(?, '%')";
 
         try {
-            stmt = con.createStatement();
-            rset = stmt.executeQuery(query);
+            pstmt = con.prepareStatement(query);
+            pstmt.setString(1, empName);
+
+            rset = pstmt.executeQuery();
 
             empList = new ArrayList<>();
 
             while (rset.next()) {
-
                 selectedEmp = new EmployeeDTO();
 
                 selectedEmp.setEmpId(rset.getString("EMP_ID"));
@@ -56,12 +59,11 @@ public class Application5 {
 
                 empList.add(selectedEmp);
             }
-
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {
             close(rset);
-            close(stmt);
+            close(pstmt);
             close(con);
         }
 

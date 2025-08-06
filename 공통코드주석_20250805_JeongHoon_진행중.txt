@@ -1,8 +1,0 @@
-/*
-Date : 20250805
-Source : title
-Author : JeongHoon
-Email : hnjh12195@gmail.com
-Comment : 코드설명(목적, 동작원리, 결과)
-Version 1.0 :
-*/

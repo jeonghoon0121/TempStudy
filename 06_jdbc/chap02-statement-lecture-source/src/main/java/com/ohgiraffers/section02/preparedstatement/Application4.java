@@ -1,42 +1,40 @@
-package com.ohgiraffers.section01.statement;
+package com.ohgiraffers.section02.preparedstatement;
 
 import com.ohgiraffers.model.dto.EmployeeDTO;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Scanner;
 
 import static com.ohgiraffers.common.JDBCTemplate.close;
 import static com.ohgiraffers.common.JDBCTemplate.getConnection;
 
-public class Application5 {
+public class Application4 {
 
     public static void main(String[] args) {
 
         Connection con = getConnection();
 
-        Statement stmt = null;
+        PreparedStatement pstmt = null;
         ResultSet rset = null;
 
-        /* 한 행의 정보를 담을 DTO */
         EmployeeDTO selectedEmp = null;
 
-        /* 여러 DTO를 하나의 인스턴스로 묶기 위한 List */
-        List<EmployeeDTO> empList = null;
+        Scanner sc = new Scanner(System.in);
+        System.out.print("조회할 사번을 입력해주세요 : ");
+        String empId = sc.nextLine();
 
-        String query = "SELECT * FROM EMPLOYEE";
+        String query = "SELECT * FROM EMPLOYEE WHERE EMP_ID = ?";
 
         try {
-            stmt = con.createStatement();
-            rset = stmt.executeQuery(query);
+            pstmt = con.prepareStatement(query);
+            pstmt.setString(1, empId);
 
-            empList = new ArrayList<>();
+            rset = pstmt.executeQuery();
 
-            while (rset.next()) {
-
+            if(rset.next()) {
                 selectedEmp = new EmployeeDTO();
 
                 selectedEmp.setEmpId(rset.getString("EMP_ID"));
@@ -54,19 +52,15 @@ public class Application5 {
                 selectedEmp.setEntDate(rset.getDate("ENT_DATE"));
                 selectedEmp.setEntYn(rset.getString("ENT_YN"));
 
-                empList.add(selectedEmp);
+                System.out.println("selectedEmp = " + selectedEmp);
             }
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {
             close(rset);
-            close(stmt);
+            close(pstmt);
             close(con);
-        }
-
-        for(EmployeeDTO emp : empList) {
-            System.out.println("emp = " + emp);
         }
     }
 }
