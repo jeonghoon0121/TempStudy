@@ -1,6 +1,4 @@
-package com.ohgiraffers.section02.update;
-
-import com.ohgiraffers.model.dto.MenuDTO;
+package com.ohgiraffers.section03.delete;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -13,23 +11,9 @@ import java.util.Scanner;
 import static com.ohgiraffers.common.JDBCTemplate.close;
 import static com.ohgiraffers.common.JDBCTemplate.getConnection;
 
-public class Application2 {
+public class Application {
 
     public static void main(String[] args) {
-
-        Scanner sc = new Scanner(System.in);
-        System.out.print("변경할 메뉴 번호를 입력하세요 : ");
-        int menuCode = sc.nextInt();
-        System.out.print("변경할 메뉴 이름을 입력하세요 : ");
-        sc.nextLine();
-        String menuName = sc.nextLine();
-        System.out.print("변경할 메뉴 가격을 입력하세요 : ");
-        int menuPrice = sc.nextInt();
-
-        MenuDTO changedMenu = new MenuDTO();
-        changedMenu.setCode(menuCode);
-        changedMenu.setName(menuName);
-        changedMenu.setPrice(menuPrice);
 
         Connection con = getConnection();
 
@@ -41,12 +25,14 @@ public class Application2 {
 
         try {
             prop.loadFromXML(new FileInputStream("src/main/java/com/ohgiraffers/mapper/menu-query.xml"));
-            String query = prop.getProperty("updateMenu");
+            String query = prop.getProperty("deleteMenu");
+
+            Scanner sc = new Scanner(System.in);
+            System.out.print("삭제할 메뉴 번호를 입력하세요 : ");
+            int menuCode = sc.nextInt();
 
             pstmt = con.prepareStatement(query);
-            pstmt.setString(1, changedMenu.getName());
-            pstmt.setInt(2, changedMenu.getPrice());
-            pstmt.setInt(3, changedMenu.getCode());
+            pstmt.setInt(1, menuCode);
 
             result = pstmt.executeUpdate();
 
@@ -60,9 +46,9 @@ public class Application2 {
         }
 
         if(result > 0) {
-            System.out.println("메뉴 수정 성공!");
+            System.out.println("메뉴 삭제 성공!");
         } else {
-            System.out.println("메뉴 수정 실패!");
+            System.out.println("메뉴 삭제 실패!");
         }
     }
 }

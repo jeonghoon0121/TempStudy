@@ -12,6 +12,5 @@ public class Application {
         Connection con = getConnection();
         System.out.println("con = " + con);
         close(con);
-        //com.mysql.cj.jdbc.ConnectionImpl@710f4dc7
     }
 }
