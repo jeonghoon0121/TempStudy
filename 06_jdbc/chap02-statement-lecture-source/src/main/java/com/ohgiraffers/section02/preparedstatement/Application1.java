@@ -31,7 +31,6 @@ public class Application1 {
         } finally {
             close(rset);
             close(pstmt);
-            close(rset);
         }
     }
 }

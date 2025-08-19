@@ -1,7 +1,9 @@
-package com.org.section01.xmlconfig;
+package com.org.section02.javaconfig;
+
 import java.util.List;
+
 public class PrintResult {
-    public void printMenuList(List<MenuDTO> menuList) {
+    public void printMenuList( List <MenuDTO> menuList) {
         for(MenuDTO menu:menuList){
             System.out.println(menu);
         }
@@ -29,4 +31,6 @@ public class PrintResult {
         }
         System.out.println(successMessage);
     }
+
+
 }

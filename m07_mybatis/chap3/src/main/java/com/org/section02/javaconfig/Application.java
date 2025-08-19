@@ -1,10 +1,9 @@
-package com.org.section01.xmlconfig;
+package com.org.section02.javaconfig;
 
-import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
-//서비스는 비즈니스로직,서비스 처리
+
 import static com.org.section01.xmlconfig.Template.getSqlSession;
 
 public class Application {
@@ -26,11 +25,10 @@ public class Application {
 
             switch (no){
                 case 1: menuController.selectAllMenu(); break;
-                //실패 컨트롤러 서비스 다 찍어봐야됨 ->수정완료
-                case 2: menuController.selectMenuByCode(inputMenuCode()); break;
+//                case 2: menuController.selectMenuByCode(inputMenuCode()); break;
                 case 3: menuController.registMenu(inputMenu()); break;
-                case 4: menuController.modifyMenu(inputModifyMenu());break;
-                case 5: menuController.deleteMenu(inputMenuCode()); break;
+//                case 4: menuController.modifyMenu(inputModifyMenu());break;
+//                case 5: menuController.deleteMenu(inputMenuCode()); break;
                 case 6:
                 default:
                     System.out.println("잘못된 메뉴를 선택했습니다."); break;

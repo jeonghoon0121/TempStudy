@@ -66,7 +66,7 @@ com.ohgiraffers.practice02.level03.hard.emp.model.dto.EmployeeDTO.java
 - phone : String
 - address : String
 
-+ EmployeeDTO()
++ EmployeeDTO()oS
 
 + setters / getters             // 필드 수정용 메소드 / 필드값 리턴용 메소드
 
