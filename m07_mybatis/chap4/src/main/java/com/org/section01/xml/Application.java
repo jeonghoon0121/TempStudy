@@ -3,6 +3,7 @@ package com.org.section01.xml;
 import com.org.common.MenuDTO;
 import com.org.common.SearchCriteria;
 import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.session.SqlSession;
 
 import java.util.*;
 
@@ -26,13 +27,94 @@ public class Application{
                 case 1: ifSubMenu(); break;
                 case 2: chooseSubMenu(); break;
                 case 3: foreachSubMenu(); break;
-                case 4:break;
+                case 4: trimSubMenu(); break;
                 case 9:
                     System.out.println("return 0"); return;
             }
         }while(true);
     }
+    private static void trimSubMenu() {
+        Scanner sc=new Scanner(System.in);
+        MenuService menuService = new MenuService();
+        do {
+            System.out.println("trim 서브메뉴");
+            System.out.println("1. 검색조건이 있는경우 메뉴코드로 조회");
+            System.out.println("2. 메뉴 혹은 카테고리 둘다 일치하는 경우 검색, 없을경우 전체검사");
+            System.out.println("3. 원하는 메뉴 수정");
+            System.out.println("9. 이전메뉴");
+            System.out.println("메뉴 번호 입력");
+            int no = sc.nextInt();
+            switch (no){
+                case 1: menuService.searchMenuByMenuCodeOrSearchAll(inputAllorOne()); break;
+                case 2: menuService.searchMenuByNameOrCategory(inputSearchCriteriaMap()); break;
+                case 3: menuService.modifyMenu(inputChangeInfo()); break;
+                case 9: return;
+            }
+        }while(true);
+    }
 
+    private static Map<String, Object> inputChangeInfo() {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("변경할 메뉴 코드를 입력하세요.");
+        int code=sc.nextInt();
+        System.out.println("변경할 메뉴 이름을 입력하세요");
+        sc.nextLine();
+        String name= sc.nextLine();
+        System.out.println("판매결정여부 Y/N");
+        String orderableStatus = sc.nextLine();
+
+        Map<String, Object> criteria=new HashMap<>();
+        criteria.put("code", code);
+        criteria.put("name",name);
+        criteria.put("orderableStatus",orderableStatus);
+
+        return criteria;
+
+    }
+
+    private static Map<String, Object> inputSearchCriteriaMap() {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("검색할 조건 입력하세요 (category or name or both null)");
+        String condition=sc.nextLine();
+
+        Map<String, Object>criteria=new HashMap<>();
+        if("category".equals(condition)){
+            System.out.println("검색할 카테고리를 입력하세요.");
+            int categoryValue=sc.nextInt();
+
+            criteria.put("categoryValue",categoryValue);
+
+        }else if("name".equals(condition)){
+            System.out.println("검색할 이름을 입력하세요.");
+            String nameValue=sc.nextLine();
+
+            criteria.put("nameValue",nameValue);
+        }else if("both".equals(condition)){
+            System.out.println("검색할 이름을 입력하세요.");
+            String nameValue=sc.nextLine();
+            System.out.println("검색할 카테고리 코드를 입력하세요.");
+            int categoryValue=sc.nextInt();
+
+            criteria.put("nameValue",nameValue);
+            criteria.put("catrgoryValue",categoryValue);
+        }
+        return criteria;
+    }
+
+    private static SearchCriteria inputAllorOne() {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("검색 조건을 입력하세요(예 아니오)");
+        boolean hasSearchValue="예".equals(sc.nextLine())?true:false;
+
+        SearchCriteria searchCriteria=new SearchCriteria();
+        if(hasSearchValue){
+            System.out.println("검색할 메뉴 코드를 입력하세요.");
+            String code = sc.nextLine();
+           searchCriteria.setCondition("menuCode");
+           searchCriteria.setValue(code);
+        }
+        return searchCriteria;
+    }
     private static void foreachSubMenu() {
         Scanner sc=new Scanner(System.in);
         MenuService menuServic=new MenuService();
@@ -48,9 +130,6 @@ public class Application{
             }
         }while(true);
     }
-
-
-
     private static void chooseSubMenu() {
         Scanner sc=new Scanner(System.in);
         MenuService menuServic=new MenuService();
@@ -66,7 +145,6 @@ public class Application{
             }
         }while(true);
     }
-
     private static SearchCriteria inputSubCategory() {
         Scanner sc=new Scanner(System.in);
         System.out.print("상위 분류를 입력해주세요. (식사, 음료, 디저트)");

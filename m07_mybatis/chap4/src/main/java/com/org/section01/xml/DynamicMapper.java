@@ -9,10 +9,13 @@ import java.util.Map;
 public interface DynamicMapper {
 
     List selectMenuByPrice(Map<String, Integer> map);
-
     List<MenuDTO> searchMenu(SearchCriteria searchCriteria);
-
     List<MenuDTO> searchMenuBySubCategory(SearchCriteria searchCriteria);
-
     List<MenuDTO> searchMenuByRandomMenuCode(Map<String, List<Integer>> criteria);
+    List<MenuDTO> searchMenuByMenuCodeOrSearchAll(SearchCriteria searchCriteria);
+
+
+    List<MenuDTO> searchMenuByNameOrCategory(Map<String, Object> criteria);
+
+    int modifyMenu(Map<String, Object> criteria);
 }

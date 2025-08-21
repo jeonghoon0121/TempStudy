@@ -93,4 +93,84 @@
             #{ menuCode }
         </foreach>
     </select>
+    <select id="searchMenuByMenuCodeOrSearchAll" parameterType="SearchCriteria" resultMap="menuResultMap">
+        select
+        a.menu_code
+        , a.menu_name
+        , a.menu_price
+        , a.category_code
+        ,a.orderable_status
+        from tbl_menu a
+        <if test="condition !=null and condition eq 'menuCode'">
+            <where>
+                a.menu_code = #{ value }
+            </where>
+        </if>
+    </select>
+    <select id="searchMenuByNameOrCategory" parameterType="hashmap" resultMap="menuResultMap">
+        select
+        a.menu_code
+        , a.menu_name
+        , a.menu_price
+        , a.category_code
+        ,a.orderable_status
+        from tbl_menu a
+<!--        <if test="nameValue != null">-->
+<!--            where a.menu_name like concat('%',#{ nameValue }, '%')-->
+<!--        </if>-->
+<!--        <if test="categoryValue != null">-->
+<!--            and a.category_code=#{ categoryValue }-->
+<!--        </if>-->
+<!--        <where>-->
+<!--            <if test="nameValue != null">-->
+<!--                a.menu_name like concat('%',#{ nameValue }, '%')-->
+<!--            </if>-->
+<!--            <if test="categoryValue != null">-->
+<!--                and a.category_code=#{ categoryValue }-->
+<!--            </if>-->
+<!--        </where>-->
+        <trim prefix="where" prefixOverrides="and|or">
+            <if test="nameValue != null">
+                a.menu_name like concat('%',#{ nameValue }, '%')
+            </if>
+            <if test="categoryValue != null">
+                and a.category_code=#{ categoryValue }
+            </if>
+        </trim>
+    </select>
+
+    <update id="modifyMenu" parameterType="hashmap">
+<!--        update tbl_menu-->
+<!--            set menu_name=#{ name }-->
+<!--                ,orderable_status=#{ orderableStatus }-->
+<!--        where menu_code = #{ code }-->
+<!--        update tbl_menu-->
+<!--        <if test="name != null and name != ''">-->
+<!--            set menu_name=#{ name }-->
+<!--        </if>-->
+<!--        <if test="orderableStatus != null and orderableStatus !=''">-->
+<!--        ,orderable_status=#{ orderableStatus }-->
+<!--        </if>-->
+<!--        where menu_code = #{ code }-->
+<!--        update tbl_menu-->
+<!--        <set>-->
+<!--        <if test="name != null and name != ''">-->
+<!--            menu_name=#{ name }-->
+<!--        </if>-->
+<!--        <if test="orderableStatus != null and orderableStatus !=''">-->
+<!--            ,orderable_status=#{ orderableStatus }-->
+<!--        </if>-->
+<!--        </set>-->
+<!--        where menu_code = #{ code }-->
+        update tbl_menu
+        <trim prefix="set" prefixOverrides=",">
+            <if test="name != null and name != ''">
+                menu_name=#{ name }
+            </if>
+            <if test="orderableStatus != null and orderableStatus !=''">
+                ,orderable_status=#{ orderableStatus }
+            </if>
+        where menu_code = #{ code }
+        </trim>
+    </update>
 </mapper>
