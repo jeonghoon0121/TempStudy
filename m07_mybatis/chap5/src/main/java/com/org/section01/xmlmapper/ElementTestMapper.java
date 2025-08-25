@@ -1,4 +1,5 @@
 package com.org.section01.xmlmapper;
+import com.org.common.CategoryAndMenuDTO;
 import com.org.common.MenuAndCategoryDTO;
 import com.org.common.MenuDTO;
 
@@ -8,4 +9,6 @@ public interface ElementTestMapper {
     List<MenuDTO> selectResultMapTest();
     List<MenuDTO> selectResultMapConstructorTest();
     List<MenuAndCategoryDTO> selectResultMapAssociationTest();
+    List<CategoryAndMenuDTO> selectResultMapCollectionTest();
+    List<MenuDTO> selectSqlTest();
 }
